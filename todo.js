@@ -1,4 +1,16 @@
-// create handler functions
+// declare variables
+const addBtn = document.querySelector('.addBtn');
+const todoList = document.getElementById("todos");
+const inputValueEl = document.getElementById("input");
+const initList = ["coding", "work", "gym"];
+
+const initPage = function() {
+    for (i = 0; i < initList.length; i++) {
+       let item =  initList[i];
+       addTodo(item);
+    }
+}
+
 
 const checkedOff = function(e) {
     if (e.target.tagName === 'LI') {
@@ -11,60 +23,54 @@ const hideListItem = function() {
     div.style.display = "none";
 } 
 
-const newElement = function() {
-    const li = document.createElement("li");
-    const inputValue = document.getElementById("myInput").value;
-    const t = document.createTextNode(inputValue);
-    li.appendChild(t);
-    if (inputValue === '') {
+// function responsible for creating list items
+const createTodo = function(todo) {  
+    let liElem = document.createElement("li");   
+    // create text node
+    const t = document.createTextNode(todo);
+    // append text to list
+    liElem.appendChild(t);
+    // add close span
+    const closeButton = document.createElement("SPAN");
+    const  x = document.createTextNode("\u00D7");
+    closeButton.className = "close";
+    closeButton.appendChild(x);
+    liElem.appendChild(closeButton);
+
+    closeButton.onclick = hideListItem;
+    return liElem;
+}
+
+const addTodo = function(text) {
+    // create a todo
+    let todo = createTodo(text);
+    
+    todoList.appendChild(todo);    
+    
+}
+
+const addTodoClickHandler = function() {
+    // grab text with getElement ...
+    let inputValueText = inputValueEl.value;
+    // validate that text
+    if (inputValueText === '') {
         alert("You must write something");
     } else {
-        document.getElementById("myUL").appendChild(li);
+        addTodo(inputValueText);
     }
-    document.getElementById("myInput").value = "";
-
-    const newSpan = document.createElement("SPAN");
-    const newTxt = document.createTextNode("\u00D7");
-    newSpan.className = "close";
-    newSpan.appendChild(newTxt);
-    li.appendChild(newSpan);
-
-    for (j = 0; j < close.length; j++) {
-        close[j].onclick = hideListItem;
-    }
- 
+    inputValueEl.value = "";
 }
 
-// create a close button and append it to each li
-
-const myNodeList = document.getElementsByTagName("LI");
-let i;
-for (i = 0; i < myNodeList.length; i++) {
-    const span = document.createElement("SPAN");
-    const txt = document.createTextNode("\u00D7");
-    span.className = "close";
-    span.appendChild(txt);
-    myNodeList[i].appendChild(span);
-}
-
-// click on the close button to hide the list item
-
-const close = document.getElementsByClassName("close");
-let j;
-for (j = 0; j < close.length; j++) {
-    close[j].onclick = hideListItem;
-}
-
-// add a "checked" symbol when clicking on a li
-
-const list = document.querySelector('ul');
-list.addEventListener('click', checkedOff);
 
 
-// create a new li when clicking on the "Add #" button
+todoList.addEventListener('click', checkedOff);
+addBtn.addEventListener('click', addTodoClickHandler);
 
-const addBtn = document.querySelector('.addBtn');
-addBtn.addEventListener('click', newElement);
+initPage();
+
+
+
+
 
 
 
