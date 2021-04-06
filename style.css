@@ -1,5 +1,13 @@
+body {
+    background: black;
+}
+
 * {
     box-sizing: border-box;
+}
+
+h3 {
+    color: white;
 }
 
 ul {
@@ -10,31 +18,34 @@ ul {
 ul li {
     cursor: pointer;
     position: relative;
-    padding: 12px 8px 12px 40px;
-    background: cadetblue;
-    font-size: 18px;
+    color: white;
+    background-color: black;
+    padding: 30px 8px 12px 40px;
+    font-size: 25px;
     transition: 0.2s;
+    text-align: center;
 }
 
 ul li:nth-child(odd) {
-    background: darkcyan;
+    background-color: black;
 }
+
 
 ul li:hover {
     /* change color when hovering over */
-    background: #ddd;
+    background: none;
 }
 
 ul li.checked {
-    background: #888;
-    color: #fff;
+    background: none;
+    color: lightsalmon;
     text-decoration: line-through;
 }
 
 ul li.checked::before {
     content: '';
     position: absolute;
-    border-color: #fff;
+    border-color:  lightsalmon;
     border-style: solid;
     border-width: 0 2px 2px 0;
     top: 10px;
