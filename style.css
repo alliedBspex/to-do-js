@@ -1,58 +1,75 @@
 body {
-    background: black;
+    background-image: url(file:///C:/Users/Nathan/Downloads/AdobeStock_341161779.jpeg);
+    background-size: auto;
+    font-family: 'Trebuchet MS';
 }
 
 * {
     box-sizing: border-box;
 }
 
+.container {
+    display: grid;
+    grid-column: 1fr;
+    grid-template-rows: 2fr 1fr 5fr;
+    text-align: center
+}
+
 h3 {
+    font-size: 3rem;
     color: white;
 }
 
-ul {
-    margin: 0;
-    padding: 0;
+.item-2 {
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    grid-gap: 20px;
+}
+
+input {
+   width: 5fr; 
+   height: 35px;
+   text-align: center;
+   border-color: lightslategray;
+   font-family: 'Trebuchet MS';
+   font-size: 18px;
+   box-shadow: 1px 1px 1px lightcyan;
+   margin: 10px;
+}
+
+.addBtn {
+    width: 1fr;
+    height: 35px;
+    font-family: 'Trebutchet MS';
+    font-size: 17px;
+    background-color: lightcyan;
+    box-shadow: 1px 1px 1px lightslategray;
+    margin: 10px;
+}
+
+.item-3 {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 1fr;
 }
 
 ul li {
+    list-style-type: none;
     cursor: pointer;
     position: relative;
-    color: white;
-    background-color: black;
-    padding: 30px 8px 12px 40px;
-    font-size: 25px;
-    transition: 0.2s;
-    text-align: center;
-}
-
-ul li:nth-child(odd) {
-    background-color: black;
-}
-
-
-ul li:hover {
-    /* change color when hovering over */
+    padding: 12px 8px 12px 40px;
+    width: 1fr;
+    margin: 15px;
     background: none;
+    color: silver;
+    text-align: center;
+    font-size: 1.75rem;
+    transition: 0.2s;
 }
 
 ul li.checked {
-    background: none;
-    color: lightsalmon;
+    color: #00ff95;
     text-decoration: line-through;
-}
-
-ul li.checked::before {
-    content: '';
-    position: absolute;
-    border-color:  lightsalmon;
-    border-style: solid;
-    border-width: 0 2px 2px 0;
-    top: 10px;
-    left: 16px;
-    transform: rotate(45deg);
-    height: 15px;
-    width: 7px;
 }
 
 .close {
@@ -63,39 +80,9 @@ ul li.checked::before {
 }
 
 .close:hover {
-    background-color: #f44336;
-    color: white;
+    background: rgb(179, 52, 63);
+    color: silver;
+
 }
 
-.header {
-    font-family: Helvetica;
-    padding: 30px 40px;
-    font-size: 50px;
-    text-align: center;
-}
-
-.header::after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-input {
-    margin: 0;
-    border: none;
-    border-radius: 0;
-    width: 75%;
-    padding: 10px;
-    font-size: 16px;
-}
-
-.addBtn {
-    padding: 10px;
-    width: 25%;
-    background: blue;
-    color: white;
-    text-align: center;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 0;
 }

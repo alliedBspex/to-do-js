@@ -2,7 +2,7 @@
 const addBtn = document.querySelector('.addBtn');
 const todoList = document.getElementById("todos");
 const inputValueEl = document.getElementById("input");
-const initList = ["coding", "work", "gym"];
+const initList = ["coding", "work", "gym", "dishes", "vacuum"];
 
 const initPage = function() {
     for (i = 0; i < initList.length; i++) {
